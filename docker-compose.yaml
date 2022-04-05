@@ -1,0 +1,21 @@
+version: "3.1"
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=jdbc:postgresql://postgres/postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+  app:
+    container_name: springboot-clevertec
+    image: springboot-clevertec
+    build: ./
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+
+
