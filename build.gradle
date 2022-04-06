@@ -38,6 +38,8 @@ dependencies {
     implementation 'org.hibernate:hibernate-search-elasticsearch:5.11.5.Final'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator:2.6.3'
+    implementation 'org.springframework.cloud:spring-cloud-starter-config:3.1.1'
 }
 
 tasks.named('test') {

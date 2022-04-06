@@ -22,7 +22,7 @@ public record LoggingAspect(HttpServletRequest request) {
     }
 
     @Pointcut("execution(public * me.isbobrenok.dto.*.*(..) )")
-    public void callAtProtoConverter() {
+    public void callAtDto() {
     }
 
     @Before("callAtControllers()")
