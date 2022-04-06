@@ -1,14 +1,10 @@
 spring:
   cloud:
     config:
-      import-check:
-        enabled: false
-      profile: prod
+      profile: dev
       uri:
         - htpp://localhost:8888
-
   application:
     name: clevertec-final-project
-
 server:
   port: 8080
