@@ -1,13 +1,22 @@
 spring:
   application:
-    name: config-server
+    name: cloud-server
   cloud:
     config:
+      fail-fast: true
+      retry:
+        initial-interval: 1500
+        multiplier: 1.5
+        max-attempts: 10000
+        max-interval: 1000
       server:
         git:
           uri: https://github.com/Saviour1231234/clevertec-final-project
+          default-label: main
           search-paths:
-            - configuration
+          - configuration
+          clone-on-start: true
+        bootstrap: true
 server:
   port: 8888
 

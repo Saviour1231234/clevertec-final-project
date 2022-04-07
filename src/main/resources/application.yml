@@ -1,10 +1,8 @@
-spring:
-  cloud:
-    config:
-      profile: dev
-      uri:
-        - htpp://localhost:8888
-  application:
-    name: clevertec-final-project
 server:
   port: 8080
+spring:
+  application:
+    name: clevertec-final-project
+  cloud:
+    config:
+      profile: prod

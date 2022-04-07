@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    config:
+    discovery:
+      enabled: true
+      profile: prod
+      uri:
+        - ${CLOUD:http://config-server:8888}
+      fail-fast: true
+  application:
+    name: clevertec-final-project
