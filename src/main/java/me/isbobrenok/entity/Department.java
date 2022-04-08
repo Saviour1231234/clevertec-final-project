@@ -24,6 +24,9 @@ public class Department {
     @Field
     String nameOfDepartment;
 
+    @Field
+    String fullNameOfDep;
+
     @OneToMany
     @JoinColumn(name = "department_id")
     List<Employee> employeeList = new ArrayList<>();

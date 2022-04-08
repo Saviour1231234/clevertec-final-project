@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
+import me.isbobrenok.entity.Sex;
 
 import java.time.LocalDate;
 
@@ -21,9 +22,21 @@ public class EmployeeResponse {
 
     String lastName;
 
-    LocalDate dateOfBirth;
+    String middleName;
+
+    Sex sex;
+
+    String position;
 
     LocalDate dateOfJoining;
+
+    LocalDate dateOfBirth;
+
+    String email;
+
+    String mobileNumber;
+
+    String bio;
 
     Double salary;
 

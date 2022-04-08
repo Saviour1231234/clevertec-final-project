@@ -14,5 +14,7 @@ public class DepartmentRequest {
 
     String nameOfDepartment;
 
+    String fullNameOfDep;
+
     List<Employee> employeeList;
 }

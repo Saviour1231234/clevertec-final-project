@@ -29,10 +29,23 @@ public class Employee {
     @Field
     @Column(name = "last_name")
     String lastName;
+    @Field
+    @Column(name = "middle_name")
+    String middleName;
+    @Enumerated
+    Sex sex;
+
+    String position;
+
+    LocalDate dateOfJoining;
 
     LocalDate dateOfBirth;
 
-    LocalDate dateOfJoining;
+    String email;
+
+    String mobileNumber;
+
+    String bio;
 
     Double salary;
 

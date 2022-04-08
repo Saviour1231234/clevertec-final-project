@@ -11,7 +11,11 @@ import org.springframework.stereotype.Repository;
 public interface EmployeeRepository extends PagingAndSortingRepository<Employee, Long> {
 
     @Query("select e from Employee e where upper(e.firstName) like concat('%', upper(?1), '%')" +
-            "or upper(e.lastName) like concat('%', upper(?1), '%')")
+            "or upper(e.lastName) like concat('%', upper(?1), '%')"+
+            "or upper(e.middleName) like concat('%', upper(?1), '%')"+
+            "or upper(e.mobileNumber) like concat('%', upper(?1), '%')"+
+            "or upper(e.bio) like concat('%', upper(?1), '%')"+
+            "or upper(e.email) like concat('%', upper(?1), '%')")
     Page<Employee> findByKeyword(String keyword, Pageable pageable);
 
 }

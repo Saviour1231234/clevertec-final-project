@@ -41,6 +41,12 @@ public class EmployeeServiceImpl implements EmployeeService {
             employee.get().setDateOfJoining(employeeRequest.getDateOfJoining());
             employee.get().setSalary(employeeRequest.getSalary());
             employee.get().setIdDepartment(employeeRequest.getIdDepartment());
+            employee.get().setSex(employeeRequest.getSex());
+            employee.get().setMiddleName(employeeRequest.getMiddleName());
+            employee.get().setBio(employeeRequest.getBio());
+            employee.get().setEmail(employeeRequest.getEmail());
+            employee.get().setMobileNumber(employeeRequest.getMobileNumber());
+            employee.get().setPosition(employeeRequest.getPosition());
             employeeRepository.save(employee.get());
         } else {
             throw new EmployeeNotFound(String.format("Employee with id: %s not found.", employeeId));

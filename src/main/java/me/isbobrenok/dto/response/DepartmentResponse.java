@@ -20,5 +20,7 @@ public class DepartmentResponse {
 
     String nameOfDepartment;
 
+    String fullNameOfDep;
+
     List<Employee> employeeList;
 }

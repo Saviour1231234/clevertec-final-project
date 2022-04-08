@@ -37,6 +37,7 @@ public class DepartmentServiceImpl implements DepartmentService {
         if (departmentUpdate.isPresent()) {
             departmentUpdate.get().setNameOfDepartment(departmentRequest.getNameOfDepartment());
             departmentUpdate.get().setEmployeeList(departmentRequest.getEmployeeList());
+            departmentUpdate.get().setFullNameOfDep(departmentRequest.getFullNameOfDep());
             departmentRepository.save(departmentUpdate.get());
         } else {
             throw new DepartmentNotFound(String.format("Department with id: %s not found.", departmentId));

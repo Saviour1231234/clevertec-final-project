@@ -43,7 +43,7 @@ public class EmployeeController {
      * @return all employees with pagination
      */
     @GetMapping(value = FIND_EMPLOYEES, produces = APPLICATION_JSON_VALUE)
-    public Page<Employee> findAllEmployees(@PageableDefault(sort = { "firstName", "lastName"}, value = 10)Pageable pageable) {
+    public Page<Employee> findAllEmployees(@PageableDefault(value = 10)Pageable pageable) {
         return employeeService.findAll(pageable);
     }
 
