@@ -24,14 +24,8 @@ public class Employee {
     Long id;
 
     @Field
-    @Column(name = "first_name")
-    String firstName;
-    @Field
-    @Column(name = "last_name")
-    String lastName;
-    @Field
-    @Column(name = "middle_name")
-    String middleName;
+    @Column(name = "fio")
+    String fio;
     @Enumerated
     Sex sex;
 

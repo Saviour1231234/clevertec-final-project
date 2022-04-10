@@ -35,14 +35,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         Optional<Employee> employee = employeeRepository.findById(employeeId);
         if (employee.isPresent()) {
-            employee.get().setFirstName(employeeRequest.getFirstName());
-            employee.get().setLastName(employeeRequest.getLastName());
+            employee.get().setFio(employeeRequest.getFio());
             employee.get().setDateOfBirth(employeeRequest.getDateOfBirth());
             employee.get().setDateOfJoining(employeeRequest.getDateOfJoining());
             employee.get().setSalary(employeeRequest.getSalary());
             employee.get().setIdDepartment(employeeRequest.getIdDepartment());
             employee.get().setSex(employeeRequest.getSex());
-            employee.get().setMiddleName(employeeRequest.getMiddleName());
             employee.get().setBio(employeeRequest.getBio());
             employee.get().setEmail(employeeRequest.getEmail());
             employee.get().setMobileNumber(employeeRequest.getMobileNumber());

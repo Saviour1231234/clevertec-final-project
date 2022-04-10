@@ -15,12 +15,8 @@ import java.time.LocalDate;
 public class EmployeeRequest {
 
     Long id;
-    @NotBlank(message = "firstName must not be blank")
-    String firstName;
-    @NotBlank(message = "lastName must not be blank")
-    String lastName;
-    @NotBlank(message = "middleName must not be blank")
-    String middleName;
+    @NotBlank(message = "fio must not be blank")
+    String fio;
 
     Sex sex;
 
