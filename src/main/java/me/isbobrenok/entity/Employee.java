@@ -25,24 +25,27 @@ public class Employee {
 
     @Field
     @Column(name = "fio")
+    @NonNull
     String fio;
     @Enumerated
     Sex sex;
-
+    @Field
+    @NonNull
     String position;
 
     LocalDate dateOfJoining;
 
     LocalDate dateOfBirth;
-
+    @NonNull
     String email;
-
+    @NonNull
     String mobileNumber;
-
+    @NonNull
     String bio;
-
+    @NonNull
     Double salary;
 
     @Column(name = "department_id")
     Long idDepartment;
+
 }

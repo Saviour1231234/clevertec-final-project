@@ -13,7 +13,8 @@ public interface EmployeeRepository extends PagingAndSortingRepository<Employee,
     @Query("select e from Employee e where upper(e.fio) like concat('%', upper(?1), '%')" +
             "or upper(e.mobileNumber) like concat('%', upper(?1), '%')"+
             "or upper(e.bio) like concat('%', upper(?1), '%')"+
-            "or upper(e.email) like concat('%', upper(?1), '%')")
+            "or upper(e.email) like concat('%', upper(?1), '%')"+
+            "or upper(e.position) like concat('%', upper(?1), '%')")
     Page<Employee> findByKeyword(String keyword, Pageable pageable);
 
 }

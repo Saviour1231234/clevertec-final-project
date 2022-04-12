@@ -7,6 +7,7 @@ import me.isbobrenok.dto.request.DepartmentCreateRequest;
 import me.isbobrenok.dto.request.DepartmentRequest;
 import me.isbobrenok.dto.response.DepartmentResponse;
 import me.isbobrenok.entity.Department;
+import me.isbobrenok.repository.DepartmentRepository;
 import me.isbobrenok.service.DepartmentService;
 import me.isbobrenok.service.SearchService;
 import me.isbobrenok.validations.response.MessageResponse;
@@ -20,6 +21,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+import java.util.List;
+
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
@@ -28,7 +31,8 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 public class DepartmentController {
 
     DepartmentService departmentService;
-    SearchService searchService;
+    DepartmentRepository departmentRepository;
+
 
     public static final String FIND_DEPARTMENT_BY_ID = "/api/departments/{departmentId}";
     public static final String FIND_DEPARTMENTS = "/api/departments";
@@ -43,7 +47,7 @@ public class DepartmentController {
      * @return all departments with pagination
      */
     @GetMapping(value = FIND_DEPARTMENTS, produces = APPLICATION_JSON_VALUE)
-    public Page<Department> findAllComments(@PageableDefault(sort = { "nameOfDepartment"}, value = 10) Pageable pageable) {
+    public Page<Department> findAllDepartments(@PageableDefault(sort = { "nameOfDepartment"}) Pageable pageable) {
         return departmentService.findAll(pageable);
     }
 
@@ -52,8 +56,8 @@ public class DepartmentController {
      * @return department that matches to search query
      */
     @GetMapping(value = FIND_DEPARTMENT_BY_KEYWORD, produces = APPLICATION_JSON_VALUE)
-    public Page<Department> searchByWord(@Param("filter") String filter,@PageableDefault(sort = {"nameOfDepartment"},
-            value = 10)  Pageable pageable) {
+    public Page<Department> searchByWord(@Param("filter") String filter,
+                                         @PageableDefault(sort = {"nameOfDepartment"})  Pageable pageable) {
         return departmentService.findByKeyword(filter, pageable);
     }
 
@@ -74,7 +78,7 @@ public class DepartmentController {
      * @return department id dto format
      */
     @PostMapping(value = CREATE_DEPARTMENT, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<Object> createComment(@Valid @RequestBody DepartmentCreateRequest departmentRequest) {
+    public ResponseEntity<Object> createDepartment(@Valid @RequestBody DepartmentCreateRequest departmentRequest) {
 
         DepartmentResponse departmentResponse = departmentService.createDepartment(departmentRequest);
 
@@ -87,7 +91,7 @@ public class DepartmentController {
      * @return updated department id dto format
      */
     @PatchMapping(value = UPDATE_DEPARTMENT, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<Object> updateComment(@Valid @RequestBody DepartmentRequest departmentRequest,
+    public ResponseEntity<Object> updateDepartment(@Valid @RequestBody DepartmentRequest departmentRequest,
                                                 @PathVariable("departmentId") Long departmentId) {
 
         DepartmentResponse departmentResponse = departmentService.updateDepartment(departmentId, departmentRequest);
@@ -100,8 +104,9 @@ public class DepartmentController {
      * @return informational message
      */
     @DeleteMapping(value = DELETE_DEPARTMENT, produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> deleteNews(@PathVariable("departmentId") Long departmentId) {
+    public ResponseEntity<?> deleteDepartment(@PathVariable("departmentId") Long departmentId) {
         departmentService.delete(departmentId);
         return new ResponseEntity<>(new MessageResponse("Department was deleted"), HttpStatus.OK);
     }
+
 }

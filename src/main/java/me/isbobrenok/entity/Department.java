@@ -14,6 +14,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Department {
 
@@ -22,9 +23,11 @@ public class Department {
     Long id;
 
     @Field
+    @NonNull
     String nameOfDepartment;
 
     @Field
+    @NonNull
     String fullNameOfDep;
 
     @OneToMany
